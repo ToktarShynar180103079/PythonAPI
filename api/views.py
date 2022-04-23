@@ -17,9 +17,9 @@ from database.sites.Scopus import scopus_pub
 
 @api_view(['POST'])
 def getAuthors(request):  # authors filtration
-    name = request.POST['name']
-    lastname = request.POST['lastname']
-
+    print('call')
+    name = request.POST.get("name", "Name")
+    lastname = request.POST.get("lastname", "Shynar")
     result = [None] * 3
     t1 = Thread(target=scopus_author, args=(lastname, name, result, 0))
     t2 = Thread(target=iexp_author, args=(lastname, name, result, 1))

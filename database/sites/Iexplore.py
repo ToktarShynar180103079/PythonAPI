@@ -34,7 +34,7 @@ def iexp_author(lastname, name, result, index):
     if out['endRecord'] != 0:
         for rec in out['records']:
             for au in rec['authors']:
-                if name in au['firstName'] and lastname in au['lastName'] and au['id'] not in aut_id:
+                if name in au['preferredName'] and lastname in au['preferredName'] and au['id'] not in aut_id:
                     author = Author(
                         iexpId=au['id'],
                         surname=str(au['lastName']),
@@ -96,9 +96,9 @@ def iexp_pub(auth_id):
         publications.append(publication)
     return publications
 
-authors = iexp_author("Baimuratov", "A") # 3
+# authors = iexp_author("Baimuratov", "A") # 3
 #
 # print(iexp_pub(37089228134)[0].link)
 
-for i in range(len(authors)):
-    print(authors[i].__str__())
+# for i in range(len(authors)):
+#     print(authors[i].__str__())

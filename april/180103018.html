@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+	<link rel="stylesheet" href="{% static '180103018.css' %}">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'footstyle.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Advanced Search</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+
+     <script type="text/javascript">
+         function submit() {
+             var xhr = new XMLHttpRequest();
+             xhr.onreadystatechange = function () {
+                 if (xhr.readyState === 4) {
+                     alert(xhr.response);
+                 }
+             }
+             xhr.open('post', 'http://127.0.0.1:8000/api/', true);
+             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+             xhr.send();
+         }
+     </script>
+</head>
+<body>
+ <nav class="navbar navbar-light bg-light static-top">
+    <div class="container ">
+        <div class="cont-left">
+            <div class="logo"><a class="navbar-brand" href="#!"><img class="logo" src="{% static 'logo.png' %}"></a></div>
+            <div class="about"><a class="navbar-brand" href="#!">About Us</a></div>
+            <div class="dropdown">
+                <div class="dropbtn"><a class="navbar-brand" href="#!">Help</a></div>
+                <div class="dropdown-content">
+                    <div class="drop"><a class="contact-us" href="#!">Contact Us</a></div>
+                    <div class="drop"><a class="faq" href="#!">FAQ</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="cont-right">
+            <div class="reg"><a class="btn btn-primary" href="#signup">Create account</a></div>
+            <div class="login"><a class="btn btn-primary" href="#signup">Sign In</a></div>
+        </div>
+    </div>
+</nav>
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h1 class="mb-5 header_text">Advanced Search</h1>
+
+                    <form method="post" action="../api/authors"  class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
+
+                        <!-- Email address input-->
+                        <div class="row">
+                            <div class="col">
+                                <td><input class="form-control form-control-lg" id="name" name="name" type="text" placeholder="Name" data-sb-validations="required,email" /></td>
+                                <td><input style="margin-top: 20px;" class="form-control form-control-lg" id="lastname" name="lastname" type="text" placeholder="Surname" data-sb-validations="required,email" /></td>
+                                <div class="col-auto">
+                                    <button style="margin-top: 20px; margin-right: -500px;" class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>           
+                    <form method="post" class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
+
+                        <!-- Email address input-->
+                        <div class="row">
+                            <div class="col">
+                               <td><input style="margin-top: 20px;" class="form-control form-control-lg" id="id" type="number" placeholder="ID" data-sb-validations="required,email" /></td>
+                           </table>
+
+                       </div>
+
+                   </div>
+                   <button style="margin-top: 20px; margin-right: -500px;"  class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+               </form>
+           </div>
+       </div>
+   </div>
+</div>
+</header>
+
+
+<!-- Icons Grid-->
+<section class="features-icons bg-light text-center">
+    <div class="info">
+
+
+        <div class="info">
+            <div class="container2">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <p>
+                                <a class="image-link" href="https://www.sciencedirect.com/" title="A site where you can find any article">
+                                    <img alt="A site where you can find any article" src="{% static 'clock.png' %}" width="100" height="100">
+                                </a>
+                            </p>
+                            <div class="text-wrap column">
+                                <h6>
+                                    <a href="https://www.sciencedirect.com/" title="Find articles" style="color: black;">A site where you can find any article</a>
+                                </h6>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <p>
+                                <a class="image-link" href="https://www.sciencedirect.com/" title="A site where you can find any article">
+                                    <img alt="A site where you can find any article" src="{% static 'search.png' %}" width="100" height="100">
+                                </a>
+                            </p>
+                            <div class="text-wrap column">
+                                <h6>
+                                    <a href="https://www.sciencedirect.com/" title="Find articles" style="color: black;">A site where you can find any article</a>
+                                </h6>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                            <p>
+                                <a class="image-link" href="https://www.sciencedirect.com/" title="Create your account for extended use of the site">
+                                    <img alt="Create your account for extended use of the site" src="{% static 'acc.png' %}" width="100" height="100">
+                                </a>
+                            </p>
+                            <div class="text-wrap column">
+                                <h6>
+                                    <a href="https://www.sciencedirect.com/" title="Find articles" style="color: black;">Create your account for extended use of the site</a>
+                                </h6>
+                            </div>  
+
+                        </div>
+                    </div>
+                </div>   </div> </div> </div>
+            </section>
+            <footer class="site-footer static-bottom">
+              <div class="container">
+                <div class="row">
+                </div>
+
+            </div>
+            <table >
+              <tr>
+                  <td class="tab1">
+                      <div class="col-md-8 col-sm-6 col-xs-12">
+                        <p class="copyright-text"><small>April &copy; 2022</small></p>
+                    </div>
+
+                </td>
+                <td class="tab2">
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                      <li><a class="telegram" href="https://t.me/April_team"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+                      <li><a class="phone" href="tel:+77006841165"><i class="fa fa-phone"></i></a></li>
+                      <li><a class="envelope" href="mailto:180103070@stu.sdu.edu.kz"><i class="fa fa-telegram"></i></a></li>
+
+                  </ul>
+              </div>
+          </td>
+      </tr>
+  </table>
+  <div class="container">
+    <div class="row">
+
+
+    </div>
+</div>
+</footer>
+</body>
+</html>
