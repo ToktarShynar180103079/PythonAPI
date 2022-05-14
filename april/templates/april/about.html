@@ -1,0 +1,35 @@
+{% extends 'april/base.html' %}
+
+{% block header %}
+    {% load static %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    {% load static %}
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" />
+    <title>About us</title>
+{% endblock %}
+
+{% block content %}
+    <section class="showcase">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                {% load static %}
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" ><img class="helpimg" src="{% static 'img/aboutus1.png' %}" width="750px height=600px"> </div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <p class="lead mb-0" align="center">
+                        <h1 align="center" style="color: rgb(77, 15, 47)">We are the April team. We have created the project</h1><br>
+                        <h6 align="center" style="color: rgb(77, 15, 47)">Advanced search is a search engine that, when searching, gives a list of researchers' works from various sources, such as Scopus, Google Scholar and Ieee Xplore. The website creates a portfolio in which will collect a list of references and bibliometric information.</h6><br><p class="text"></p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+
+
+
+
+
+
+

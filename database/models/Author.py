@@ -4,10 +4,11 @@ import json_fix
 
 class Author:
 
-    def __init__(self, name="", surname="",
+    def __init__(self,index = 0, name="", surname="",
                  orcidId="", scopusId="",
                  docCount="", affilation="",
                  country="", area="", iexpId="", scholarUrl=""):
+        self.index = 0
         self.name = name
         self.surname = surname
         self.orcidId = orcidId

@@ -21,17 +21,18 @@ def scholar_author(lastname, name, result, index):
         soup = BeautifulSoup(html.text, "html.parser")
         items = soup.find_all("h4", class_="gs_rt2")
         if items == []:
-            return None
+            result[index] = []
         else:
             html1 = items[0].find("a", class_=None).get("href")
             name = (items[0].find("a", class_=None).get_text()).split()[0]
             lastname = (items[0].find("a", class_=None).get_text()).split()[1]
-            result[index] = Author(
+            result[index] = [Author(
+                index=0,
                 name=name,
                 surname=lastname,
-                scholarUrl='https://scholar.google.com/' + html1)
+                scholarUrl='https://scholar.google.com/' + html1)]
     else:
-        return None
+        result[index] =  []
 
 
 def item_for(items):

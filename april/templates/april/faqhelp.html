@@ -1,0 +1,44 @@
+{% extends 'april/base.html' %}
+
+{% block header %}
+    {% load static %}
+    <link href="{% static 'css/faqhelp.css' %}" rel="stylesheet" />
+    {% load static %}
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" />
+    <title>Advanced Search</title>
+{% endblock %}
+
+{% block content %}
+      <section class="showcase">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/static/img/faq.png')"></div>
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <div class="faq-header">Frequently Asked Questions</div>
+                        <div class="faq-content">
+                            <div class="faq-question">
+                                <input id="q1" type="checkbox" class="panel">
+                                <div class="plus">+</div>
+                                <label for="q1" class="panel-title">How do I register on the site?</label>
+                                <div class="panel-content">Welcome, there is a link to registration on the  right corner of the site</div>
+                            </div>
+
+                            <div class="faq-question">
+                                <input id="q2" type="checkbox" class="panel">
+                                <div class="plus">+</div>
+                                <label for="q2" class="panel-title">How to set up a personal account?</label>
+                                <div class="panel-content">In the lower corner of your personal account is link to edit</div>
+                            </div>
+
+                            <div class="faq-question">
+                                <input id="q3" type="checkbox" class="panel">
+                                <div class="plus">+</div>
+                                <label for="q3" class="panel-title">How do I export publications to  a pdf file?</label>
+                                <div class="panel-content">There is an export to pdf button on the</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </section>
+{% endblock %}

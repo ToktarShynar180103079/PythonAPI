@@ -9,20 +9,21 @@ from ..models.Publication import *
 
 
 def scopus_author(lastname, name, result, index):
-    s = AuthorSearch(f'AUTHLAST({lastname}) and AUTHFIRST({name})')
-    res = s.authors
     res_aut_list = []
     try:
+        s = AuthorSearch(f'AUTHLAST({lastname}) and AUTHFIRST({name})')
+        res = s.authors
         for i in range(len(res)):
             author = Author(
-                str(res[i][4].split()[0]),
-                str(res[i][2]),
-                str(res[i][1]),
-                res[i][0][7:],
-                str(res[i][6]),
-                str(res[i][5]),
-                str(res[i][9]) + ', ' + str(res[i][8]),
-                str(res[i][10])
+                index = i,
+                name = str(res[i][4].split()[0]),
+                surname= str(res[i][2]),
+                orcidId= str(res[i][1]),
+                scopusId=res[i][0][7:],
+                docCount=str(res[i][6]),
+                affilation=str(res[i][5]),
+                country= str(res[i][8])  + ', ' + str(res[i][9]),
+                area=str(res[i][10])
             )
             res_aut_list.append(author)
     except:
@@ -51,7 +52,7 @@ def scopus_pub(scopusId):
             )
             result.append(publication)
     except Scopus401Error:
-        return 'Error'
+        return result
     return result
 
 # authors = scopus_author("Ba", "") # 3

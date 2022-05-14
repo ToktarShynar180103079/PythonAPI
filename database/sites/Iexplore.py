@@ -27,23 +27,26 @@ def iexp_author(lastname, name, result, index):
         'Origin': 'https://ieeexplore.ieee.org',
         'Cookie': 'JSESSIONID=1f1uodkJQyFydS1nj60dhUga9TzcL1eSS2GtBmSb4I2UWoFyct4e!-1059566563; TS01b03060=012f3506239362e2457f97d2093c7ee2a7ae609257d4f289c6faeaf1e87e8b729d50e85168a48a955b71aa49179c7761b2b63e68b1; WLSESSION=203580044.20480.0000; ipCheck=46.34.147.74'
     }
-    response = requests.request("POST", url, headers=headers, data=payload)
-    out = json.loads(response.text)
     authors = []
-    aut_id = []
-    if out['endRecord'] != 0:
-        for rec in out['records']:
-            for au in rec['authors']:
-                if name in au['preferredName'] and lastname in au['preferredName'] and au['id'] not in aut_id:
-                    author = Author(
-                        iexpId=au['id'],
-                        surname=str(au['lastName']),
-                        name=str(au['firstName'].split()[0])
-                    )
-                    aut_id.append(au['id'])
-                    authors.append(author)
-
-    result[index] = authors
+    try:
+        response = requests.request("POST", url, headers=headers, data=payload)
+        out = json.loads(response.text)
+        aut_id = []
+        if out['endRecord'] != 0:
+            for rec in out['records']:
+                for au in rec['authors']:
+                    if name in au['preferredName'] and lastname in au['preferredName'] and au['id'] not in aut_id:
+                        author = Author(
+                            index=len(aut_id),
+                            iexpId=au['id'],
+                            surname=str(au['lastName']),
+                            name=str(au['firstName'].split()[0])
+                        )
+                        aut_id.append(au['id'])
+                        authors.append(author)
+        result[index] = authors
+    except:
+        result[index] = authors
 
 
 def iexp_pub(auth_id):

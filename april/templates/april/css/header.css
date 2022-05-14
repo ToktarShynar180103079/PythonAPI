@@ -12,8 +12,9 @@
 }
 
 .header_text{
-  color: #212529;
+  color: #454545;
 }
+
 
 .static-top {
   width: 100%;
@@ -29,6 +30,7 @@
 
 .static-bottom {
   width: 100%;
+  position: fixed;
   bottom: 0;
   left:0;
   padding-right: var(--bs-gutter-x, 0.75rem);
@@ -55,7 +57,7 @@
   background-color: #4d0f2f;
   border: 1px solid white;
   padding: 0.5rem 0.75rem;
-  margin: 0rem 1rem;
+  margin: 0rem 0.01rem;
   margin-right: 1rem;
   font-size: 1rem;
   border-radius: 0.25rem;
@@ -98,10 +100,11 @@ nav{
 .dropdown-content a:hover {background-color: #642748;}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block;
+margin-top:0.4rem;
+border-radius: 0.2rem}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropbtn:hover {background-color: #5d123a;}
 
 
 
@@ -112,22 +115,18 @@ nav{
   background-color: rgb(77, 15, 47);
   border-color: #fff;
 }
-.btn-primary:hover {
-  color: #fff;
+.btn-primary:hover, .btn-primary:active, .btn-primary.active {
+  color: pink;
   background-color: #5d123a;
   border-color: #fff;
 }
 .btn-primary:focus {
-  color: #fff;
+  color: pink;
   background-color: #5d123a;
   border-color: #fff;
   box-shadow: 0 0 0 0.25rem #642748;
 }
-.btn-primary:active, .btn-primary.active {
-  color: #fff;
-  background-color: #5d123a;
-  border-color: #fff;
-}
+
 .btn-primary:active:focus, .btn-primary.active:focus{
   box-shadow: 0 0 0 0.25rem #642748;
 }
@@ -139,8 +138,7 @@ nav{
 
 /* header color    start*/
 .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
-  background-color:#5d123a;
-  color: #fff;
+  color: pink;
 }
 
 /*header color end */

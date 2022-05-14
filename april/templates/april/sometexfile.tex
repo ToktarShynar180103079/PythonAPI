@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+
+{% graphicspath %}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\definecolor{mBlue}{RGB}{51, 77, 167}
+\newcommand{\blue}[1]{\color{mBlue}#1}
+
+
+\usepackage[left=1.0in, right=1.0in, top=1.0in, bottom=1.0in]{geometry}
+\usepackage{setspace}
+\singlespacing
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+
+\usepackage{fancyhdr}
+\fancypagestyle{CVfooter}
+{
+ \lhead{}
+ \chead{}
+ \rhead{}
+ \lfoot{}
+ \cfoot{}
+ \rfoot{\small{\thepage/9}}
+ \renewcommand{\headrulewidth}{0.0pt}
+ \renewcommand{\footrulewidth}{0.5pt}
+}
+
+
+\usepackage[linktoc=page]{hyperref}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = mBlue,
+  citecolor = mBlue,
+  linkcolor = mBlue,
+}
+
+
+\usepackage{graphicx}
+\usepackage{float}
+
+
+
+\usepackage[compact]{titlesec}
+\titleformat*{\section}{\normalsize\bfseries}
+\titlespacing*{\section}{0mm}{2mm}{1mm}[0mm]
+
+\usepackage[export]{adjustbox}
+
+\begin{document}
+\pagestyle{CVfooter}
+
+\begin{minipage}{.2\linewidth}
+\centering
+\includegraphics[width = 2.25cm, height=3cm,frame, left]{Profile.jpg}
+\vspace{2mm}
+\end{minipage}
+\begin{minipage}{.7\linewidth}
+\noindent\begin{tabular}{l*{3}{l}r}
+Name: & {{name}} \\[0.3cm]
+Orcid Id: & \href{https://orcid.org/ {{orcid}} }{ {{orcid}} } \\[0.3cm]
+Affiliation: & {{aff}} \\[0.3cm]
+Country: & {{country}} \\[0.3cm]
+\end{tabular}
+\end {minipage}
+
+\section*{Publications}
+\vspace{2mm}
+
+\begin{enumerate}
+{% for item in publist %}
+    \item {{ item }}
+{% endfor %}
+\end{enumerate}
+
+\end{document}
+\end{document}

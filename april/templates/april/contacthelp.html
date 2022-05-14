@@ -1,0 +1,42 @@
+{% extends 'april/base.html' %}
+
+{% block header %}
+    {% load static %}
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" />
+    {% load static %}
+    <link href="{% static 'css/contacthelp.css' %}" rel="stylesheet" />
+    <title>Contact us</title>
+{% endblock %}
+
+{% block content %}
+    <section class="showcase">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/static/img/help.png')"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                        <!-- Email address input-->
+                        <div class="row">
+                            <div align="center" style="color: #454545" class="col">
+                                <h1 class="mb-5">Contact</h1>
+                                <td>
+                                    <input class="form-control form-control-lg" id="email" type="email" placeholder="@E-Mail" data-sb-validations="required,email" style="min-width: 200px;" />
+                                </td>
+                                <br>
+                                <td>
+                                    <textarea type="text" class="form-control form-control-lg" id="surname" placeholder="Your Messages" style="min-width: 200px";  id="txt"></textarea>
+                                    <button style="margin-top: 20px;" class="btn btn-primary btn-lg" id="submitButton" type="submit">Send
+                                    </button>
+                                </td>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+
+

@@ -24,7 +24,7 @@ PubList = [{'Site': 'Scopus', 'Authors': 'Kangozhin, B. R.;Baimuratov, O. A.;Zha
 def getbibtext(pub_list):
     ResText = ''
     for item in pub_list:
-        ResText = ResText + '\n\item ' + str(item['Authors']) + ', ' \
+        ResText = ResText +'\item' +  str(item['Authors']) + ', ' \
                   + '\href{' + str(item['Link']) + '}{' + str(item['Title']) + '}, '\
                   + str(item['Where published']) + ', ' \
                   + str(item['Year'])
@@ -34,7 +34,7 @@ def getbibtext(pub_list):
 def run():
     ResText = getbibtext(PubList)
     #open tex template
-    with open('sometexfile.tex') as template_file:
+    with open('../april/templates/april/sometexfile.tex') as template_file:
         global latex_code
         latex_code = template_file.read()
         print(latex_code)

@@ -1,0 +1,46 @@
+{% extends 'april/base.html' %}
+
+{% block header %}
+    {% load static %}
+    <script src="{% static 'jscript.js' %}"></script>
+    {% load static %}
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" />
+    <title>Advanced Search</title>
+{% endblock %}
+
+{% block content %}
+    <header class="masthead">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="text-center text-white">
+                    <!-- Page heading-->
+                        <h1 class="mb-5 header_text">Advanced Search</h1>
+                        <form method='post' action = 'authors' class="form-subscribe" id="searchForm">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col">
+                                    <td><input class="form-control form-control-lg" id="name" name="name" type="text" placeholder="Name" data-sb-validations="required,email" /></td>
+                                    <td><input style="margin-top: 20px;" class="form-control form-control-lg" id="lastname" name="lastname" type="text" placeholder="Surname" data-sb-validations="required,email" /></td>
+                                    <div class="col-auto">
+                                        <button style="margin-top: 20px; margin-right: -500px;" class="btn btn-primary btn-lg" id="searchButton" type="submit" onclick="makeSearch()">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form class="form-subscribe" id="contactForm">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col">
+                                    <td><input style="margin-top: 20px;" class="form-control form-control-lg" id="id" type="number" placeholder="ID" data-sb-validations="required,email" /></td>
+                                </div>
+                            </div>
+                            <button style="margin-top: 20px; margin-right: -500px;"  class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+

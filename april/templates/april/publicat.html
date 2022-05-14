@@ -1,0 +1,81 @@
+{% extends 'april/base.html' %}
+
+{% block header %}
+    {% load static %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    {% load static %}
+    <link href="{% static 'css/publicat.css' %}" rel="stylesheet" />
+
+    <title>Publications</title>
+{% endblock %}
+
+{% block content %}
+<header class="masthead">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <div class="content" style="width: 1000px;text-align: justify; padding: 20px 30px 20px 40px;">
+                        <div id="wrap">
+                            <div id="window1" class="window" >
+                                <h4 class="h2d" > {{response_aut.surname}} {{response_aut.name}} <p>{{response_aut.orcidId}}</p><p>{{response_aut.affiliation}}</p></h4>
+                                <div class="img1">
+                                    {% load static %}
+                                    <img src="{% static 'user.png' %}" alt="user" width="100" height="120">
+                                </div>
+                                <div class="app_top">
+                                    <p><a href="#">{{response_aut.affiliation}}</a>
+                                </div>
+                                <div id="window" class="window2">
+                                    <div id="pane1" class="pane">
+                                        <button style="margin-left: 930px; margin-top:20px; float: left;" type="button"><a class="navbar-brand" href="/exporttocsv">Export to csv</a></button><br>
+                                        <br>
+                                        <button style="margin-left: 930px; margin-top:20px; float: left;" type="button"><a class="navbar-brand" href="/exporttopdf">Export to pdf</a></button>
+                                    </div>
+                                </div>
+                                <div id="window2" class="window8">
+                                    <div id="pane2" class="pane">
+                                        <img style="margin-top: -0px; position: inherit;" src="{% static 'img/matplotlib.jpg' %}" width="900" height="300" >
+                                    </div>
+                                </div>
+
+                                <form method="post" action="#">
+                                    <div>
+                                        <table style="width:100%" class="css-serial">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:5%"></th>
+                                                    <th style="width:60%">Title, Authors, edition :</th>
+                                                    <th style="width:20%">Type</th>
+                                                    <th style="width:15%">Year</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for i in response_pub %}
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>{{i.title}}</div>
+                                                            <div>{{i.authors}}</div>
+                                                            <div>{{i.wherePublished}}</div>
+                                                        </td>
+                                                        <td><span>{{i.type}}</span></td>
+                                                        <td><span>{{i.year}}</span></td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </form>
+                            </div>
+                       </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+
+

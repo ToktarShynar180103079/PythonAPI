@@ -1,0 +1,136 @@
+
+.css-serial {
+    counter-reset: serial-number; /* Set the serial number counter to 0 */
+}
+
+.css-serial td:first-child:before {
+    counter-increment: serial-number; /* Increment the serial number counter */
+    content: counter(serial-number); /* Display the counter */
+}
+* {
+    font-family: Open Sans;
+    margin: 0;
+}
+
+.res1{
+  padding-top: 50px;
+}
+
+#apartment-dashboard {
+    width: 80%;
+    margin: 120px 10%;
+}
+
+#apartment-dashboard table {
+  margin-top: 50px;
+    border-collapse: collapse;
+}
+
+#apartment-dashboard table, #apartment-dashboard table th, #apartment-dashboard table td {
+    border: 1px solid #bfbfbf;
+}
+
+#apartment-dashboard table th, #apartment-dashboard table td {
+    padding: 10px;
+}
+
+#apartment-dashboard table th {
+    background-color: grey;
+    color: white;
+}
+
+
+
+.link-button:hover {
+    color: pink;
+}
+
+.apartment-cell {
+    width: 330px;
+}
+
+.owner-cell {
+    width: 300px;
+}
+
+.address-cell {
+    width: 450px;
+}
+
+.added-cell {
+    width: 150px;
+}
+
+.status-cell {
+    width: 150px;
+}
+
+.action-cell {
+    width: 200px;
+}
+
+.res1{
+    ground-color: grey;
+}
+
+.res2{
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+
+#apartment-dashboard #page-description {
+    margin: 25px 0 25px 15px;
+}
+
+#apartment-dashboard #filter-form {
+  margin: 0 0 10px 0;
+}
+
+#apartment-dashboard #filter-form fieldset {
+  border-radius: 10px;
+}
+
+#apartment-dashboard #filter-form fieldset legend {
+  border-radius: 8px;
+  padding: 2px 5px;
+}
+
+#apartment-dashboard input, #apartment-dashboard button,
+#apartment-dashboard select {
+  outline: none;
+      border: none;
+}
+
+.left-float {
+  float: left;
+}
+
+.center-float {
+  float: center;
+}
+
+.right-float {
+  float: right;
+}
+
+#pagination {
+  padding: 20px 0;
+}
+
+#pagination .button {
+  padding: 5px 0;
+  text-align: center;
+  width: 125px;
+  text-decoration: none;
+  color: white;
+  background-color: grey;
+  border: none;
+  font-weight: bold;
+}
+
+#pagination p {
+  display: inline-block;
+}
