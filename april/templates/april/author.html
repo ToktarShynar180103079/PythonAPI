@@ -1,0 +1,82 @@
+{% extends 'april/base.html' %}
+
+
+{% block header %}
+    <title>Asearch - Authors Page</title>
+    {% load static %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    {% load static %}
+    <link href="{% static 'css/author.css' %}" rel="stylesheet" />
+    {% load static %}
+    <link href="{% static 'css/notfound.css' %}" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+{% if len is not 0 %}
+    <div class="wrapper">
+        <article>
+            <form id="filter-form" action="#" method="get">
+                <section id="objective">
+                    <h2>Results by author: {{len}}</h2>
+                    <p>
+                        The author's Name is {{name}}, surname is {{lastname}}
+                    </p>
+                </section>
+            </form>
+            <table class="table css-serial"  style="width: 100%; background-color: #E5E7E9" align="center">
+                <tr style="background-color: #999999">
+                    <th style="width:5%">№</th>
+                    <th class="apartment-cell">Name</th>
+                    <th class="owner-cell">ORCID</th>
+                    <th class="address-cell">Affiliation</th>
+                    <th class="added-cell">Country</th>
+                </tr>
+                <tr>
+                    {% for i in response_data %}
+                            <tr>
+                                <td></td>
+                                <td><form method="post" action="publications/{{i.index}}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="extra_submit_param" value="extra_submit_value">
+                                    <button class="authorbtn" type="submit" name="submit_param" value="submit_value" class="link-button">
+                                    {{i.name}} {{i.surname}}
+                                </button></form></td>
+                                <td><a href="https://orcid.org/{{i.orcidId}}">{{i.orcidId}}</a></td>
+                                <td>{{i.affilation}}</td>
+                                <td>{{i.country}}</td>
+                            </tr>
+                {% endfor %}
+                </tr>
+            </table>
+        </article>
+    </div>
+{% else %}
+    <div class="wrapper">
+        <article>
+            <section>
+                <h2>Results by author: 0</h2>
+                    <p>
+                        The author's Name is {{name}}, surname is {{lastname}}
+                    </p>
+            </section>
+            <div class="table">
+                <table class="tbl">
+                    <tr>
+                        <th class="text" >We were unable to find results for NIYETULLAYEVA <br>  <br></th>
+                    </tr>
+                    <tr>
+                        <td class="">Please try your search again using the following suggestions:</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Use fewer keywords</li>
+                                <li>Refer to our FAQ</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </article>
+    </div>
+{% endif %}
+{% endblock %}

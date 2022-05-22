@@ -40,7 +40,7 @@ def authors(request):
             r = requests.post(url, data=payload)
             if r.status_code == 200:
                 data = r.json()
-                return render(request, "april/authors.html",{'response_data':data, 'name': fname, 'lastname': fsname, 'len': len(data)})
+                return render(request, "april/author.html",{'response_data':data, 'name': fname, 'lastname': fsname, 'len': len(data)})
             else:
                 attempt_num += 1
                 # You can probably use a logger to log the error here
@@ -61,7 +61,7 @@ def publications(request, id):
                 data = r.json()
                 with open("exp.pickle", "wb") as f:
                     pickle.dump(data, f)
-                return render(request, "april/publicat.html",{'response_pub':data[1][1:], 'response_aut':data[0][0], 'index': id, 'len': len(data[1])})
+                return render(request, "april/publication.html",{'response_pub':data[1][1:], 'response_aut':data[0][0], 'index': id, 'len': len(data[1])})
             else:
                 attempt_num += 1
                 time.sleep(1)  # Wait for 5 seconds before re-trying
