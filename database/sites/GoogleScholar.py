@@ -40,33 +40,23 @@ def item_for(items):
     for item in items:
         publication = Publication(
             site="Google Scholar",
-            title=item.find("a", class_="gsc_a_at").get_text(),  # title
-            link='https://scholar.google.com/' + item.find("a", class_="gsc_a_at").get("href"),
-            authors=item.find("div", class_="gs_gray").get_text(),
-            year=item.find("span", class_="gsc_a_h gsc_a_hc gs_ibl").get_text(),  # year
-            wherePublished=item.find("div", class_="gs_gray").find_next("div").get_text().rsplit(',', 2)[0]  # publisher
-        )
+            title = item.find("a", class_="gsc_a_at").get_text(),
+            link = 'https://scholar.google.com/' + item.find("a", class_="gsc_a_at").get("href"),
+            authors = item.find("div", class_="gs_gray").get_text(),
+            wherePublished = item.find("div", class_="gs_gray").find_next("div").get_text().rsplit(',', 2)[0],
+            year = item.find("span", class_="gsc_a_h gsc_a_hc gs_ibl").get_text()
+            )
         if len(item.find("div", class_="gs_gray").find_next("div").get_text().rsplit(',', 2)) > 1:
             pages = item.find("div", class_="gs_gray").find_next("div").get_text().rsplit(',', 2)[1]
             if pages != "":
-                if pages[1:5] != item.find("span", class_="gsc_a_h gsc_a_hc gs_ibl").get_text() and pages[1] in ['0',
-                                                                                                                 '1',
-                                                                                                                 '2',
-                                                                                                                 '3',
-                                                                                                                 '4',
-                                                                                                                 '5',
-                                                                                                                 '6',
-                                                                                                                 '7',
-                                                                                                                 '8',
-                                                                                                                 '9']:
+                if pages[1:5] != item.find("span", class_="gsc_a_h gsc_a_hc gs_ibl").get_text() and pages[1] in ['0','1','2',
+                                                                                                                     '3','4','5',
+                                                                                                                     '6','7','8','9']:
                     publication.PP = pages
+
         publications.append(publication)
 
     return publications
-
-def advancedpub(items):
-    result = []
-    return result
 
 def scholar_pub(url):
     html1 = get_html(url)
