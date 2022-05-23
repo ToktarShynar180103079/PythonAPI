@@ -31,11 +31,21 @@ def scopus_author(lastname, name, result, index):
 
     result[index] = res_aut_list
 
-
 def scopus_pub(scopusId):
+    result = []
     try:
-        result = []
         au = AuthorRetrieval(scopusId)
+        auth = Author(
+            name=au.given_name,
+            surname=au.surname,
+            orcidId=au.orcid,
+            scopusId=scopusId,
+            docCount=au.document_count,
+            affilation=au.affiliation_current[0][5],
+            country=au.affiliation_current[0][7]
+        )
+        result.append(auth)
+        public = []
         a = au.get_documents()
         for i in range(len(a)):
             publication = Publication(
@@ -50,7 +60,8 @@ def scopus_pub(scopusId):
                 volume=a[i][23],
                 keyWords=a[i][28]
             )
-            result.append(publication)
+            public.append(publication)
+        result.append(public)
     except Scopus401Error:
         return result
     return result

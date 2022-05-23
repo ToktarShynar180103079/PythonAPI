@@ -50,6 +50,30 @@ def authors(request):
         return Response({"error": "Method not allowed"}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
+def scopusauthor(request):
+    if request.method == "POST":
+        attempt_num = 0  # keep track of how many times we've retried
+        while attempt_num < 3:
+            url = 'http://127.0.0.1:8000/api/scopusauthor'
+            id = request.POST.get("id", "Id")
+            payload = {'id': id, 'content_type':'application/json'}
+            r = requests.post(url, data=payload)
+            if r.status_code == 200:
+                data = r.json()
+                with open("exp.pickle", "wb") as f:
+                    pickle.dump(data, f)
+                if len(data)!=0:
+                    return render(request, "april/publication.html",{'response_pub':data[1][1:], 'response_aut':data[0][0], 'index': id, 'len': len(data[1])})
+                else:
+                    return render(request, "april/notfound.html", {'id': id})
+            else:
+                attempt_num += 1
+                time.sleep(1)  # Wait for 5 seconds before re-trying
+        return Response({"error": "Request failed"}, status=r.status_code)
+    else:
+        return Response({"error": "Method not allowed"}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
 def publications(request, id):
     if request.method == "POST":
         attempt_num = 0  # keep track of how many times we've retried
@@ -94,13 +118,16 @@ def exporttopdf(request):
     return render_to_pdf(request, template_name, context, filename='pdfpublications.pdf')
 
 def exporttocsv(request):
-    with open("exp", "rb") as fp:  # Unpickling
-        PubList = (pickle.load(fp))[1]
+    with open("exp.pickle", "rb") as fp:  # Unpickling
+        PubList = pickle.load(fp)
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="csvpublication.csv"'
-    writer = csv.writer(response)
+    response.write(u'\ufeff'.encode('utf8'))
+    writer = csv.writer(response, delimiter=';')
+
     writer.writerow(['Site', 'Title', 'Authors', 'Type', 'HtmlLink',  'Publisher', 'Year', 'Pages'])
-    for item in PubList[1:]:
+    Res = PubList[1][1:]
+    for item in Res:
         writer.writerow([
             item['site'],
             item['title'],

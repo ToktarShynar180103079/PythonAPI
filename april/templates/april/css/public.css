@@ -52,13 +52,34 @@ article{
   display:flex;
   flex-direction: column;
 }
-
-h1, h2, h3, h4, h5{
-/*   font-family: 'Kanit', sans-serif; */
+td{
+  padding-bottom: 40px;
 }
 
-h2{
-  font-size:26px;
+h1, h2, h3, h4, h5, p{
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+.ptr{
+  color:#777777;
+}
+.ptitle{
+  color: black;
+  font-size: 20px;
+}
+.ptitle:hover{
+  color:pink;
+}
+.pyear{
+  float: left;
+  color: black;
+}
+.fcol{
+  float: left;
+  padding-right: 50px;
+}
+.pnumber{
+  color:black;
 }
 
 #profile-image{
@@ -89,10 +110,8 @@ table td{
     content: counter(serial-number); /* Display the counter */
 }
 
-
-
 #description{
-  font-size: 20px;
+  font-size: 15px;
   margin: 20px 0 20px;
   color: #666;
   font-weight: normal;
@@ -100,7 +119,6 @@ table td{
 
 #contact{
   list-style-type: none;
-
 }
 
 #contact li{
@@ -124,7 +142,10 @@ table td{
 #contact li a:hover{
   text-decoration: none;
 }
-
+.btn-primary{
+  color: white;
+  text-decoration: none;
+}
 #contact li:hover .fa{
   background: #777;
 }

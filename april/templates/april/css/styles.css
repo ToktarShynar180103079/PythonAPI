@@ -237,12 +237,12 @@ sup {
   top: -0.5em;
 }
 
-a {
+.flink{
   color: white;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
-  color: white;
+  color: pink;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {

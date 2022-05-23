@@ -28,11 +28,11 @@
                                 </div>
                             </div>
                         </form>
-                        <form class="form-subscribe" id="contactForm">
+                        <form method='post' action = 'scopusauthor'  class="form-subscribe" id="contactForm">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="col">
-                                    <td><input style="margin-top: 20px;" class="form-control form-control-lg" id="id" type="number" placeholder="ID" data-sb-validations="required,email" /></td>
+                                    <td><input style="margin-top: 20px;" class="form-control form-control-lg" name="id" id="id" type="number" minlength="11" maxlength="11" placeholder="ID" data-sb-validations="required,email" /></td>
                                 </div>
                             </div>
                             <button style="margin-top: 20px; margin-right: -500px;"  class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>

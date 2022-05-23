@@ -1,0 +1,42 @@
+{% extends 'april/base.html' %}
+
+
+{% block header %}
+    <title>Asearch - Authors Page</title>
+    {% load static %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    {% load static %}
+    <link href="{% static 'css/author.css' %}" rel="stylesheet" />
+    {% load static %}
+    <link href="{% static 'css/notfound.css' %}" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <article>
+            <section>
+                <h2>Results by author: 0</h2>
+                    <p>
+                        The author's Id is {{id}}
+                    </p>
+            </section>
+            <div class="table">
+                <table class="tbl">
+                    <tr>
+                        <th class="text" >We were unable to find results for {{id}} <br>  <br></th>
+                    </tr>
+                    <tr>
+                        <td class="">Please try your search again using the following suggestions:</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Use fewer keywords</li>
+                                <li>Refer to our FAQ</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </article>
+    </div>
+{% endblock %}

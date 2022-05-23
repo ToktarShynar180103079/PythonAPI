@@ -9,5 +9,6 @@ urlpatterns = [
     path('authors', views.authors, name='authors'),
     path('publications/<int:id>', views.publications, name='publications'),
     path('exporttopdf', views.exporttopdf, name='exporttopdf'),
-    path('exporttocsv', views.exporttocsv, name='exporttocsv')
+    path('exporttocsv', views.exporttocsv, name='exporttocsv'),
+    path('scopusauthor', views.scopusauthor, name='scopusauthor')
 ]

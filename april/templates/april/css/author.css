@@ -102,17 +102,31 @@ h2{
 #contact li:hover .fa{
   background: #777;
 }
-
+.orcid{
+  color: black;
+  text-decoration: none;
+}
+.orcid:hover{
+  color:pink
+}
 table th{
   text-align: left;
   width: 20%;
   vertical-align: top;
 }
-
+.authorbtn{
+  border:none;
+  background-color: inherit;
+}
+.authorbtn:hover{
+  color:pink;
+}
 section{
   padding-top: 20px;
 }
-
+th, td {
+  padding: 15px;
+}
 section h2{
   border-bottom: 1px solid #999;
   padding-bottom: 5px;

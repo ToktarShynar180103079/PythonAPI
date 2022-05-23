@@ -64,6 +64,9 @@ def item_for(items):
 
     return publications
 
+def advancedpub(items):
+    result = []
+    return result
 
 def scholar_pub(url):
     html1 = get_html(url)

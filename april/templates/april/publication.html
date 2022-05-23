@@ -2,9 +2,9 @@
 
 {% block header %}
     {% load static %}
-    <link href="{% static 'css/public.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     {% load static %}
-    <link href="{% static 'css/home2.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/public.css' %}" rel="stylesheet" />
     <title>Asearch - Publications</title>
 {% endblock %}
 
@@ -33,15 +33,21 @@
                                         <table style="width:100%" class="css-serial">
                                             <tbody>
                                                 {% for i in response_pub %}
-                                                    <tr>
-                                                        <td></td>
-                                                        <td>
-                                                            <h4>{{i.title}}</h4>
-                                                            <p>{{i.authors}}</p>
-                                                            <p>{{i.wherePublished}}</p>
+                                                    <tr class="ptr">
+                                                        <td style="width: 5%;" class="pnumber"></td>
+                                                        <td class="fcol">
+                                                            {% if i.link is not None %}
+                                                            <div><a class="ptitle" href="{{i.link}}" >{{i.title}}</a></div>
+                                                            {% else %}
+                                                            <div class="ptitle">{{i.title}}</div>
+                                                            {% endif %}
+                                                            <div>{{i.authors}}</div>
+                                                            <div>{{i.wherePublished}}</div>
                                                         </td>
-                                                        <td><h5>{{i.type}}</h5></td>
-                                                        <td><h5>{{i.year}}</h5></td>
+                                                        <td style="width: 15%;">
+                                                            <div class="pyear">{{i.year}}<div>{{i.type}}</div></div>
+
+                                                        </td>
                                                     </tr>
                                                 {% endfor %}
                                             </tbody>

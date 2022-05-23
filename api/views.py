@@ -55,6 +55,21 @@ def getAuthors(request):
 
         return Response(result, content_type='application/json')
 
+@api_view(['POST'])
+def getscopusauthor(request):
+    if request.method == 'POST':
+        id = request.POST.get("id", "Id")
+        publicationsList = scopus_pub(id)
+        resultp = [None]
+        if(len(publicationsList) != 0):
+            for i in range(len(publicationsList[1])):
+                resultp.append(json.loads(publicationsList[1][i].toJSON()))
+            author = [json.loads(publicationsList[0].toJSON())]
+            result = [author, resultp]
+        else:
+            result=[]
+
+        return Response(result, content_type='application/json')
 
 @api_view(['POST'])
 def getPublications(request):
@@ -67,7 +82,7 @@ def getPublications(request):
 
     index = request.POST.get('index')
     if final_authors[int(index)].scopusId != "":
-        list_scop = scopus_pub(final_authors[int(index)].scopusId)
+        list_scop = scopus_pub(final_authors[int(index)].scopusId)[1]
 
     if final_authors[int(index)].iexpId != "":
         list_iexp = iexp_pub(final_authors[int(index)].iexpId)

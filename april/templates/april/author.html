@@ -22,8 +22,8 @@
                     </p>
                 </section>
             </form>
-            <table class="table css-serial"  style="width: 100%; background-color: #E5E7E9" align="center">
-                <tr style="background-color: #999999">
+            <table class="table css-serial"  style="width: 100%; background-color: #E5E7E970" align="center">
+                <tr style="background-color: #99999950">
                     <th style="width:5%">№</th>
                     <th class="apartment-cell">Name</th>
                     <th class="owner-cell">ORCID</th>
@@ -40,7 +40,7 @@
                                     <button class="authorbtn" type="submit" name="submit_param" value="submit_value" class="link-button">
                                     {{i.name}} {{i.surname}}
                                 </button></form></td>
-                                <td><a href="https://orcid.org/{{i.orcidId}}">{{i.orcidId}}</a></td>
+                                <td ><a class="orcid" href="https://orcid.org/{{i.orcidId}}">{{i.orcidId}}</a></td>
                                 <td>{{i.affilation}}</td>
                                 <td>{{i.country}}</td>
                             </tr>
@@ -61,7 +61,7 @@
             <div class="table">
                 <table class="tbl">
                     <tr>
-                        <th class="text" >We were unable to find results for NIYETULLAYEVA <br>  <br></th>
+                        <th class="text" >We were unable to find results for {{lastname}} {{name}} <br>  <br></th>
                     </tr>
                     <tr>
                         <td class="">Please try your search again using the following suggestions:</td>
